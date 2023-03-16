@@ -1,0 +1,253 @@
+/*Color de la pagina*/
+:root{
+    font-size: 1rem;
+    font-family: 'EB Garamond', serif, 'Poppins', sans-serif;
+    --color-1: rgb(253, 131, 93);
+    --color-2: rgb(214, 106, 106);
+    --color-3: #d86060;
+    --color-pagina: rgb(255, 239, 234);
+    --color-titulo: rgb(146, 0, 0);
+    --color-texto: black;
+}
+
+body{
+    background-color: var(--color-2);
+    justify-content: center;
+    color: var(--color-texto);
+    margin: 0;
+}
+
+#pagina{
+    display: flexbox;
+    justify-content:center;
+    margin: auto;
+    min-width: 40rem;
+    max-width: 65%;
+    padding: 1.7rem;
+    background-color: var(--color-pagina);
+}
+
+.navColor{
+    background-color: var(--color-pagina); 
+}
+
+p{
+    font-family: 'EB Garamond', serif;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+/* Elementos del encabezado */
+.encabezado{
+    height: 12rem;
+}
+nav{
+    padding: 2.1rem 1rem;
+    background-color: var(--color-2);
+}
+
+nav ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+nav ul li a{
+    color: var(--color-texto);
+    text-decoration: none;
+    font-size: 1rem;
+    display: block;
+    padding: 1rem;
+}
+
+.datos li{
+    list-style-type: none;
+    margin-top: 1rem;
+}
+
+#modoVis{
+    padding: 1rem;
+}
+#modoVis:hover, nav ul li a:hover{
+    cursor: pointer;
+    background-color: var(--color-1);
+    border-radius: 0.4rem;
+}
+
+/*Contenedor de la foto de perfil (figure e img)*/
+#perfil{
+    min-width: 8rem;
+    max-width: 8.7rem;
+    width: 20%;
+    height: 100%;
+    margin-left: 0.6rem;
+}
+
+/* figure contenedor de img*/
+#foto{
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 8rem;
+    min-height: 8rem;
+    width: 99%;
+    height: 99%;
+
+}
+
+/* img contenedor de la imagen de perfil */
+#fotoPerfil{
+    border-radius: 50%;
+    width: 8rem;
+    height: 8rem;
+}
+
+/* clase contenedora de las img */
+.logosReducidos {
+    height: 3rem;
+}
+.logosReducidos:hover {
+    transform: scale(1.25);
+    transition: 0.5s ease 0.05s;
+}
+
+.upArrow{
+    height: 1.2rem;
+}
+
+.downArrow{
+    height: 1.2rem;
+}
+
+/* Elementos del cuerpo*/
+
+.tematicaBarra{
+    clear: both;
+    border-top: 0.2rem solid var(--color-3);
+    padding-bottom: 0.6rem;
+}
+
+.datos {
+    padding-left: 2rem;
+}
+
+.resaltar {
+    font-family: 'Poppins', sans-serif;
+}
+
+.vista {
+    margin-top: 0.6rem;
+    margin-right: 1.2rem;
+    float: right;
+    padding: 0.4rem;
+    border-radius: 0.2rem;
+}
+.vista:hover{
+    background-color: var(--color-2);
+    color: var(--color-texto);
+    cursor: pointer;
+}
+
+.iconoTitulo {
+    float: left;
+    flex-direction: row;
+    margin-top: 1.2rem;
+    margin-left: 1rem;
+    font-size: 1.5rem;
+}
+
+.titulo {
+    padding-bottom: 4rem;
+    border-bottom: 0.06rem solid var(--color-3);
+    color: var(--color-titulo);
+    
+}
+.titulo h3 {
+    float: left;
+    display: flex;
+    margin: 0px;
+    padding: 1em;
+    font-size: 1.27em;
+}
+
+[id^=mostrar] {
+    display: none;
+}
+
+footer {
+    clear: both;
+    border-top: 1px solid var(--color-3);
+    padding-top: 1em;
+    text-align: center;
+    margin-top: 1.2rem;
+}
+
+#dayNight{
+    height: 3rem;
+}
+
+
+
+/* Vista mobile */
+@media only screen and (min-width: 0px) and (max-width: 700px){
+    
+    body{
+        margin: none;
+    }
+
+    header{
+        margin: 4rem;
+    }
+    
+    #pagina{
+        min-width: 95%;
+    }
+
+    p{
+        font-size: 0.85rem;
+    }
+    
+    /* Elementos del encabezado */
+    .encabezado{
+        height: 0rem;
+        display: flexbox;
+    }
+    /*Contenedor de la foto de perfil (figure e img)*/
+    #perfil{
+        float: left;
+    }
+    
+    /* figure contenedor de img*/
+    #foto{
+        flex-direction: row;
+    }
+    
+    /* img contenedor de la imagen de perfil */
+    #fotoPerfil{
+        border-radius: 50%;
+        width: 5rem;
+        height: 5rem;
+    }
+    
+    /* clase contenedora de las img */
+    .logosReducidos {
+        height: 1.5rem;
+    }
+    
+    /* Elementos del cuerpo*/
+    
+    .datos {
+        padding-left: 0.5rem;
+    }
+    .titulo h3 {
+        float: left;
+        display: flex;
+        margin: 0rem;
+        padding: 1.2rem;
+        font-size: 1rem;
+    }
+    
+    #dayNight{
+        height: 1.5rem;
+}
+}
