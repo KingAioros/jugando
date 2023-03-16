@@ -227,6 +227,14 @@ footer {
         height: 5rem;
     }
 
+    .upArrow{
+        height: 1rem;
+    }
+    
+    .downArrow{
+        height: 1rem;
+    }
+
     
     /* clase contenedora de las img */
     .logosReducidos {
