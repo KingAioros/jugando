@@ -203,9 +203,7 @@ footer {
         min-width: 95%;
     }
 
-    p{
-        font-size: 0.85rem;
-    }
+
     
     /* Elementos del encabezado */
     .encabezado{
@@ -228,6 +226,7 @@ footer {
         width: 5rem;
         height: 5rem;
     }
+
     
     /* clase contenedora de las img */
     .logosReducidos {
@@ -239,12 +238,19 @@ footer {
     .datos {
         padding-left: 0.5rem;
     }
-    .titulo h3 {
-        float: left;
-        display: flex;
-        margin: 0rem;
-        padding: 1.2rem;
-        font-size: 1rem;
+
+    .titulo h3 {  
+        padding: 1.4rem 0.4rem;
+        font-size: 0.9rem;
+    }
+
+    .iconoTitulo {
+        margin-left: 0.5rem;
+        font-size: 1.5rem;
+    }
+
+    p{
+        font-size: 0.85rem;
     }
     
     #dayNight{
