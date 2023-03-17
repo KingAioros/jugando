@@ -127,6 +127,12 @@ nav ul li a{
     padding-bottom: 0.6rem;
 }
 
+.contactUs{
+    border-top: 0.2rem solid var(--color-3);
+    padding-bottom: 0.6rem;
+    float: left;
+}
+
 .datos {
     padding-left: 2rem;
 }
@@ -185,6 +191,82 @@ footer {
 #dayNight{
     height: 3rem;
 }
+
+.formulario{
+    color: white;
+    font-family: 'Rubik Distressed';
+    font-size: 1rem;
+    background-image:  radial-gradient(#ffe3c4 0.5px, transparent 0.5px), radial-gradient(rgb(255, 156, 121) 0.5px, rgb(253, 107, 62) 0.5px);
+    background-size: 20px 20px;
+    background-position: 0 0,10px 10px;
+    margin: auto;
+    width: 90%;
+    max-width: 400px;
+    padding: 2rem 4rem;
+    border-radius: 1rem;
+    box-shadow: 0 5px 10px -5px rgb(5, 5, 5 / 30%);
+    text-align: center;
+}
+.formularioTitle{
+    font-size: 2rem;
+    margin-bottom: 0.5rem
+    }
+.formularioP{
+        font-weight: 300;
+        
+    }
+.formularioLink{
+        font-weight: 400;
+        color: rgb(189, 189, 189);
+    }
+    .formularioContainer{
+        margin-top: 0.5rem;
+        display: grid;
+        gap: 0.5rem;
+        }
+     .grupo{
+        position: relative;
+        color: white;
+        font-family: 'Rubik Distressed';
+        font-size: 1rem;
+     }
+     .formularioImput{
+        width: 100%;
+        background: none;
+        color: white;
+        font-family: 'Rubik Distressed';
+        font-size: 1rem;
+        padding: 0.5rem 0.2rem;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid rgb(214, 106, 106);
+    }
+    .formularioLabel{
+        color: white;
+        font-family: 'Rubik Distressed';
+        font-size: 1rem;
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        left: 5px;
+        transform: translateY(10px);
+        transition: transform .5s, color 3s; 
+    }
+    .formularioImput:focus + .formularioLabel,
+    .formularioImput:not(:placeholder-shown) + .formularioLabel{
+        transform: translateY(-12px) scale(.7);
+        transform-origin: left top;
+        color: #ffb866;
+    }
+    .formularioEnviar{
+        background-color: rgb(146, 0, 0);
+        color: whitesmoke;
+        font-weight: 300;
+        font-size: 1rem;
+        padding: 0.5rem 0rem;
+        border: none;
+        border-radius: 1rem;
+       }
 
 
 
@@ -263,5 +345,10 @@ footer {
     
     #dayNight{
         height: 1.5rem;
-}
+    }
+
+    .formularioTitle{
+        font-size: 1.2rem;
+        margin: 0.6rem 0rem;
+    }
 }

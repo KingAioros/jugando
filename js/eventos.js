@@ -1,3 +1,5 @@
+let inactivo = setTimeout(mensajeInactivo, 30000);
+
 //Evento que cambia el comportamiento del display
 let botones = document.getElementsByClassName('vista');
 for(let i=0; i<botones.length; i++){
@@ -51,3 +53,19 @@ for(let i=0; i<botones.length; i++){
         }
     }, false);
 };
+
+//Mensaje inactivo
+function mensajeInactivo() {
+    Swal.fire({
+        text: '¿Te encuentras ahí?',
+        showCancelButton: false,
+        showConfirmButton: true,
+    })
+}
+
+function reiniciarContador() {
+    clearTimeout(inactivo);
+    inactivo = setTimeout(mensajeInactivo, 30000);
+}
+
+ document.addEventListener("mousemove", reiniciarContador)
