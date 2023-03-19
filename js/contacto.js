@@ -1,16 +1,16 @@
 //Variables
 let persona = 0;
 let email = false;
+let nameValidar = false;
 let formEnviar = document.getElementById("fEnviarCont");
 //Se crean objetos
-let crearPersona = () => { persona = new Persona ({ nombre: userName, apellido: userLastName, usuario: user, email: userMail, phone: userPhone });}
+let crearPersona = () => { persona = new Persona ({ nombre: userName, apellido: userLastName, email: userMail, phone: userPhone });}
 
 //Object
 class Persona{
   constructor(literal){
     this.nombre = literal.nombre;
     this.apellido = literal.apellido;
-    this.usuario = literal.usuario;
     this.email = literal.email;
     this.phone = literal.phone;
   }
@@ -35,11 +35,6 @@ Swal.fire({
           <input type="text" id="lastName" class="formularioImput" placeholder=" ">
           <label for="lastName" class="formularioLabel">Apellido:</label>
           <span class="formularioLinea"></span>
-        </div>
-        <div class="grupo">
-          <input type="text" id="usuario" class="formularioImput" placeholder=" ">
-            <label for="usuario" class="formularioLabel">Usuario:</label>
-            <span class="formularioLinea"></span>
         </div>
         <div class="grupo">
           <input type="text" id="mail" class="formularioImput" placeholder=" ">
@@ -88,13 +83,12 @@ const registroExitoso = () => {
     timer: 1500,
     timerProgressBar: true
   })
-  window.location="../page/loginWelcome.html";
+  console.log("OK")
 }
 
     //Validar correo
 const validarEmail = (valor) => {
     if (/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(valor)){
-       alertMail("válido", valor, 'success');
      email = true;
     } else {
        alertMail("invalido", valor, 'error');
@@ -102,20 +96,33 @@ const validarEmail = (valor) => {
     }
    }
 
+   const validarDatos = (dato) => {
+    if(new RegExp('^[A-Z]+$', 'i').test(dato)){
+      nameValidar = true;
+     } else {
+        datosError("El nombre o apellido solo puede contener letras");
+      nameValidar = false;
+     }
+    }
+
    //Registrar datos
 function registrar(){
      userName = document.getElementById("name").value;
      userLastName = document.getElementById("lastName").value;
-     user = document.getElementById("usuario").value;
      userMail = document.getElementById("mail").value;
      userPhone = document.getElementById("phone").value;
 
-    if (userName && userLastName && user &&userMail && userPhone != " "){
+    if((userName == "") || (userLastName == "") || (userMail == "") || (userPhone == "")){
+        datosError("Contiene campos sin completar");
+    }
+
+    else if (userName && userLastName &&userMail && userPhone != " "){
+        validarDatos(userName);
+        validarDatos(userLastName);
         validarEmail(userMail)
-        if (email == true){
+        if (email == true && nameValidar == true){
         crearPersona();
         const enJSON = JSON.stringify(persona);
-        localStorage.setItem(`Usuario:${user}`, enJSON)
         localStorage.setItem(`Correo:${userMail}`, enJSON)
         registroExitoso();
         }
@@ -123,12 +130,9 @@ function registrar(){
         console.log("correo invalido")
         }
     }
-    else if(userPassword != userPasswordVerificar){
-        datosError("Verifique el password");
-    }
     else {
-        datosError("Contiene campos sin completar");
-    }
+      datosError("Contiene campos sin completar o caracteres invalidos")
+      }
 }
 
 //Ejecutar codigo
