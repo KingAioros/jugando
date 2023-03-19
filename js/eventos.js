@@ -1,4 +1,4 @@
-let inactivo = setTimeout(mensajeInactivo, 30000);
+let inactivo = setTimeout(mensajeInactivo, 60000);
 
 //Evento que cambia el comportamiento del display
 let botones = document.getElementsByClassName('vista');
@@ -65,7 +65,7 @@ function mensajeInactivo() {
 
 function reiniciarContador() {
     clearTimeout(inactivo);
-    inactivo = setTimeout(mensajeInactivo, 30000);
+    inactivo = setTimeout(mensajeInactivo, 60000);
 }
 
  document.addEventListener("mousemove", reiniciarContador)

@@ -2,6 +2,7 @@
 let persona = 0;
 let email = false;
 let nameValidar = false;
+let apellidoValidar = false;
 let phoneValidar = false;
 let formEnviar = document.getElementById("fEnviarCont");
 //Se crean objetos
@@ -79,7 +80,7 @@ const registroExitoso = () => {
     toast: true,
     position: 'top-end',
     icon: 'success',
-    title: 'Registro completado con exito',
+    title: 'Datos enviados con exito',
     showConfirmButton: true,
     timer: 1500,
     timerProgressBar: true
@@ -97,20 +98,30 @@ const validarEmail = (valor) => {
     }
    }
 
-   const validarDatos = (dato) => {
+   const validarDatos = (dato,dato2) => {
+    if (dato2 == "1"){
     if(new RegExp('^[A-Z]+$', 'i').test(dato)){
       nameValidar = true;
      } else {
-        datosError("El nombre o apellido solo puede contener letras");
+        datosError("El nombre solo puede contener caracteres alfabéticos");
       nameValidar = false;
      }
+    }
+    if (dato2 == "2"){
+      if(new RegExp('^[A-Z]+$', 'i').test(dato)){
+        apellidoValidar = true;
+       } else {
+          datosError("El apellido solo puede contener caracteres alfabéticos");
+        apellidoValidar = false;
+       }
+      }
     }
 
      const validarPhone = (datoPhone) => {
        if(new RegExp('^[0-9]+$', 'i').test(datoPhone)){
          phoneValidar = true;
         } else {
-           datosError("Solo puede contener caracteres numericos");
+           datosError("El campo teléfono solo puede contener caracteres numericos");
          phoneValidar = false;
         }
        }
@@ -127,11 +138,11 @@ function registrar(){
     }
 
     else if (userName && userLastName &&userMail && userPhone != " "){
-        validarDatos(userName);
-        validarDatos(userLastName);
+        validarDatos(userName,"1");
+        validarDatos(userLastName,"2");
         validarPhone(userPhone);
         validarEmail(userMail);
-        if (email == true && nameValidar == true && phoneValidar == true){
+        if (email == true && nameValidar == true && apellidoValidar == true && phoneValidar == true){
         crearPersona();
         const enJSON = JSON.stringify(persona);
         localStorage.setItem(`Correo:${userMail}`, enJSON)
