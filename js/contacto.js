@@ -2,6 +2,7 @@
 let persona = 0;
 let email = false;
 let nameValidar = false;
+let phoneValidar = false;
 let formEnviar = document.getElementById("fEnviarCont");
 //Se crean objetos
 let crearPersona = () => { persona = new Persona ({ nombre: userName, apellido: userLastName, email: userMail, phone: userPhone });}
@@ -105,6 +106,15 @@ const validarEmail = (valor) => {
      }
     }
 
+     const validarPhone = (datoPhone) => {
+       if(new RegExp('^[0-9]+$', 'i').test(datoPhone)){
+         phoneValidar = true;
+        } else {
+           datosError("Solo puede contener caracteres numericos");
+         phoneValidar = false;
+        }
+       }
+
    //Registrar datos
 function registrar(){
      userName = document.getElementById("name").value;
@@ -119,15 +129,16 @@ function registrar(){
     else if (userName && userLastName &&userMail && userPhone != " "){
         validarDatos(userName);
         validarDatos(userLastName);
-        validarEmail(userMail)
-        if (email == true && nameValidar == true){
+        validarPhone(userPhone);
+        validarEmail(userMail);
+        if (email == true && nameValidar == true && phoneValidar == true){
         crearPersona();
         const enJSON = JSON.stringify(persona);
         localStorage.setItem(`Correo:${userMail}`, enJSON)
         registroExitoso();
         }
         else {
-        console.log("correo invalido")
+        console.log("Uno o más datos pueden ser incorrectos")
         }
     }
     else {
